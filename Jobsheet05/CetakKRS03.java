@@ -1,3 +1,5 @@
+package Jobsheet05;
+
 import java.util.Scanner;
 
 public class CetakKRS03 {
@@ -11,11 +13,10 @@ public class CetakKRS03 {
         if (uktLunas) {
             System.out.println("Pembayaran UKT terverivikasi");
             System.out.println("Silahkan Cetak KRS dan minta tanda tanggan DPA");
-        } 
-        else {
+        } else {
             System.out.println("Pembayaran UKT belum terverivikasi");
             System.out.println("Silahkan lakukan pembayaran UKT terlebih dahulu");
         }
-     sc.close();
+    sc.close();
     }
 }
