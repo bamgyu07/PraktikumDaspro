@@ -16,5 +16,6 @@ public class PemilihanHariDenganIf03 {
         } else {
             System.out.println("Invalid Number");
         }
+
     }
 }
