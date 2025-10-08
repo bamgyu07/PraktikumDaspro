@@ -14,6 +14,8 @@ public class CetakKRS03 {
             System.out.println("Pembayaran UKT terverivikasi");
             System.out.println("Silahkan Cetak KRS dan minta tanda tanggan DPA");
         }
-        
+        else {
+            System.out.println("Registrasi ditolak. Silakan lunasi UKT terlebih dahulu");
+        }
     }
 }
