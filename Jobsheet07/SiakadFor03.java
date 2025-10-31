@@ -19,5 +19,8 @@ public class SiakadFor03 {
 
         System.out.println("Nilai tertinggi: " + tertinggi);
         System.out.println("Nilai terendah: " + terendah);
+        System.out.println("Jumlah mahasiswa yang tidak lulus: " + failures);
+        System.out.println("Jumlah mahasiswa yang lulus: " + (10 - failures));
     }
 }
+
