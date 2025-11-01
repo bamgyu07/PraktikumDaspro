@@ -15,6 +15,9 @@ public class SiakadFor03 {
             if (nilai < terendah) {
                 terendah = nilai;
             }
+            if (nilai < 60) {
+                failures++;
+            }
         }
 
         System.out.println("Nilai tertinggi: " + tertinggi);
@@ -23,4 +26,5 @@ public class SiakadFor03 {
         System.out.println("Jumlah mahasiswa yang lulus: " + (10 - failures));
     }
 }
+
 
