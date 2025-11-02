@@ -12,21 +12,26 @@ public class Tugas02 {
         //harga parkir jika lebih dari 5 jam
         int parkirLebih5Jam = 12500;
 
-        System.out.print("Jenis Kendaraan: (1. motor, 2. mobil)");
+        System.out.print("Jenis Kendaraan: (1. motor, 2. mobil): ");
         jenis = sc.nextInt();
         System.out.print("Durasi parkir (dalam jam):");
         durasi = sc.nextInt();
 
-        if (jenis == 1 || jenis ==2) {
-            if (jenis == 1) {
-                total = durasi * parkirMotor;
-                System.out.println("Total biaya parkir motor selama " + durasi + " jam adalah Rp" + total);
+        if (jenis == 1 || jenis == 2) {
+            if (durasi > 5) {
+                System.out.println("Total biaya parkir : Rp" + parkirLebih5Jam);
             } else {
-                total = durasi * parkirMobil;
-                System.out.println("Total biaya parkir mobil selama " + durasi + " jam adalah Rp" + total);
+                if (jenis == 1) {
+                    total = durasi * parkirMotor;
+                    System.out.println("Total biaya parkir motor selama " + durasi + " jam adalah Rp" + total);
+                } else {
+                    total = durasi * parkirMobil;
+                    System.out.println("Total biaya parkir mobil selama " + durasi + " jam adalah Rp" + total);
+                }
             }
         } else {
             System.out.println("Jenis kendaraan tidak valid.");
         }
     }
 }
+
