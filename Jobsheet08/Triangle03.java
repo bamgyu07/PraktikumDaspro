@@ -18,9 +18,10 @@ public class Triangle03 {
                 j++;
             }
             i++;
-            
+            System.out.println();
         }
     }
     
 }
+
 
