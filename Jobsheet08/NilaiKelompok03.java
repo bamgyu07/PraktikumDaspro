@@ -10,26 +10,20 @@ public class NilaiKelompok03 {
         int KelompokTerbaik = 0;
         totalNilai = 0;
 
-            int i = 1;
-            while (i <= 6) {
-                System.out.println("kelompok " + i );
+            for (int i= 1; i <= 6; i++) {
                 totalNilai = 0;
-    
+                System.out.println("Masukkan nilai untuk Kelompok " + i + ":");
                 for (int j = 1; j <= 5; j++) {
-                    System.out.print("Masukkan nilai ke- " + j + ": ");
+                    System.out.print("  Nilai anggota ke-" + j + ": ");
                     nilai = sc.nextDouble();
                     totalNilai += nilai;
                 }
                 rataNilai = totalNilai / 5;
-                System.out.println("Total nilai: " + totalNilai);
-                System.out.println("Rata-rata: " + rataNilai);
-    
+                System.out.println("Rata-rata nilai Kelompok " + i + " adalah: " + rataNilai);
                 if (rataNilai > maxRata) {
                     maxRata = rataNilai;
                     KelompokTerbaik = i;
                 }
-    
-                i++;
             }
     
             System.out.println("Kelompok dengan rata-rata tertinggi adalah kelompok " + KelompokTerbaik + " dengan nilai rata-rata " + maxRata);
