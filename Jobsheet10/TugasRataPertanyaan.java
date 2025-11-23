@@ -24,17 +24,23 @@ public class TugasRataPertanyaan {
         String Tampilkan = sc.nextLine();
 
         if (Tampilkan.equalsIgnoreCase("ya")) {
-            System.out.println("\n===============================");
-            System.out.print("Rata-rata nilai survei kepuasan responden");
-
-            for (int j = 0; j < 10; j++) {
+            System.out.print("Rata-rata pertanyaan yang ke berapa? (1-6) ");
+            int pertanyaanKe = sc.nextInt();
+            
+            if (pertanyaanKe >= 1 && pertanyaanKe <= 6) {
                 double total = 0;
-                for (int i = 0; i < 6; i++) {
-                    total += surveiKepuasan[i][j];
+
+                for (int i = 0; i < surveiKepuasan.length; i++) {
+                    total += surveiKepuasan[i][pertanyaanKe - 1];
                 }
-                double rata2 = total / 6;
-                System.out.print("Rata-ratanya adalah: " + rata2);
+                double rata2 = total / surveiKepuasan.length;
+                System.out.println("\n===========================");
+                System.out.println("Rata-rata nilai untuk pertanyaan ke-" + pertanyaanKe + " adalah: " + rata2);
+            } else {
+                System.out.println("Nomor pertanyaan tidak valid");
             }
+        } else {
+            System.out.println("Terima kasih");
         }
     }
 }
