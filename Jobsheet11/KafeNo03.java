@@ -1,8 +1,16 @@
+package Jobsheet11;
+
+import java.util.Scanner;
+
 public class KafeNo03 {
-    public static void main(String[] args) {
-        Menu();
-    }
-    public static void Menu() {
+    public static void Menu(String namaPelanggan, boolean isMember) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Selamat datang di Resto Kafe, " + namaPelanggan + "!");
+
+        if (isMember) {
+            System.out.println("Anda adalah member, dapatkan diskon 10% untuk setiap pembelian!");
+        }
+
         System.out.println("=== MENU RESTO KAFE ===");
         System.out.println("1. Kopi Hitam - Rp 15,000");
         System.out.println("2. Cappuccino - Rp 20,000");
@@ -12,5 +20,24 @@ public class KafeNo03 {
         System.out.println("6. Mie Goreng - Rp 18,000");
         System.out.println("======================");
         System.out.println("Silahkan pilih menu yang Anda inginkan.");
+
+        System.out.print("\nMasukkan nomor menu yang ingin anda pesan: ");
+        int pilihanMenu = sc.nextInt();
+        System.out.print("Masukkan jumlah item yang ingin anda pesan: ");
+        int banyakItem = sc.nextInt();
+
+        int totalHarga = hitungTotalHarga(pilihanMenu, banyakItem);
+
+        System.out.println("Total harga untuk pesanan Anda: Rp " + totalHarga);
+    }
+    public static void main(String[] args) {
+        Menu("Andi", true);
+
+    }
+    public static int hitungTotalHarga(int piliihanMenu, int banyakItem) {
+        int[] hargaItems = {15000, 20000, 22000, 12000, 10000, 18000};
+
+        int hargaTotal = hargaItems[piliihanMenu - 1] * banyakItem;
+        return hargaTotal;
     }
 }
