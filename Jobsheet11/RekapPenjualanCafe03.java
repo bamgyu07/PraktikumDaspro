@@ -7,13 +7,28 @@ public class RekapPenjualanCafe03 {
     static int [][] penjualan = new int [5][7]; //5 menu, 7 hari
 
     public static void inputDataPenjualan() {
-        Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < menu.length; i++) {
-            System.out.println("Masukkan data penjualan untuk menu: " + menu[i]);
-            for (int j = 0; j < 7; j++) {
-                System.out.print("Hari " + (j + 1) + ": ");
-                penjualan[i][j] = sc.nextInt();
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Masukkan jumlah menu: ");
+        int jumlahMenu = input.nextInt();
+        input.nextLine(); // untuk membuang newline
+
+        System.out.print("Masukkan jumlah hari penjualan: ");
+        int jumlahHari = input.nextInt();
+        input.nextLine(); // untuk membuang newline
+
+        menu = new String[jumlahMenu];
+        penjualan = new int[jumlahMenu][jumlahHari];
+
+        for (int i = 0; i < jumlahMenu; i++) {
+            System.out.print("\nMasukkan nama menu ke-" + (i + 1) + ": ");
+            menu[i] = input.nextLine();
+
+            for (int j = 0; j < jumlahHari; j++) {
+                System.out.print("  Penjualan hari ke-" + (j + 1) + ": ");
+                penjualan[i][j] = input.nextInt();
             }
+            input.nextLine(); // untuk membuang newline
         }
     }
 
@@ -26,48 +41,52 @@ public class RekapPenjualanCafe03 {
         System.out.println();
         for (int i = 0; i < menu.length; i++) {
             System.out.print(menu[i] + "\t");
-            if (menu[i].length() < 8) {
-                System.out.print("\t");
-            }
-            for (int x = 0; x < 7; x++) {
-                System.out.print("" + penjualan[i][x] + "\t");
+            if (menu[i].length() < 8) System.out.print("\t"); // rapikan tab
+            for (int j = 0; j < penjualan[i].length; j++) {
+                System.out.print(penjualan[i][j] + "\t");
             }
             System.out.println();
         }
+
     }
 
     public static void tampilkanMenuTerlaris() {
         int maxPenjualan = 0;
         String menuTerlaris = "";
+
         for (int i = 0; i < menu.length; i++) {
-            int totalPenjualanMenu = 0;
-            for (int j = 0; j < 7; j++) {
-                totalPenjualanMenu += penjualan[i][j];
+            int total = 0;
+            for (int j = 0; j < penjualan[i].length; j++) {
+                total += penjualan[i][j];
             }
-            if (totalPenjualanMenu > maxPenjualan) {
-                maxPenjualan = totalPenjualanMenu;
+            if (total > maxPenjualan) {
+                maxPenjualan = total;
                 menuTerlaris = menu[i];
             }
         }
-        System.out.println("\nMenu terlaris selama seminggu adalah: " + menuTerlaris + " dengan total penjualan: " + maxPenjualan);
+
+        System.out.println("\nMenu dengan total penjualan tertinggi: " + menuTerlaris + " (" + maxPenjualan + " buah)");
     }
 
-    public static void tampilkanNilaiRata() {
-        System.out.println("\nNilai rata-rata penjualan per menu selama seminggu:");
+
+    public static void tampilkanRataRataPenjualan() {
+        System.out.println("\nRata-rata penjualan per menu:");
         for (int i = 0; i < menu.length; i++) {
-            int totalPenjualanMenu = 0;
-            for (int j = 0; j < 7; j++) {
-                totalPenjualanMenu += penjualan[i][j];
+            int total = 0;
+            for (int j = 0; j < penjualan[i].length; j++) {
+                total += penjualan[i][j];
             }
-            double rataRata = totalPenjualanMenu / 7.0;
-            System.out.printf("%-15s: %.2f buah\n", menu[i], rataRata);
+            double rata = total / (double) penjualan[i].length;
+            System.out.printf("%-15s: %.2f buah\n", menu[i], rata);
         }
     }
+
 
     public static void main(String[] args) {
         inputDataPenjualan();
         tampilkanDataPenjualan();
         tampilkanMenuTerlaris();
-        tampilkanNilaiRata();
+        tampilkanRataRataPenjualan();
     }
+
 }
